@@ -1,0 +1,46 @@
+https://kafka.apache.org/downloads
+
+----------------------------------------------------------------------------------------------
+ O cmd DEVE SER EXECUTADO NO C:\kafka\kafka_2.13-3.3.2\bin\windows
+
+Inicia o Zookeeper
+zookeeper-server-start.bat C:\kafka\kafka_2.13-3.3.2\config\zookeeper.properties
+
+Inicia o Servidor KAFKA.
+kafka-server-start.bat C:\kafka\kafka_2.13-3.3.2\config\server.properties
+
+
+
+Estrutura de pastas 
+No caminho:
+C:\kafka\kafka_2.13-3.3.2\Data\kafka
+No caminho acima estão armazenados os arquivos do KAFKA.
+
+NO caminho:
+C:\kafka\kafka_2.13-3.3.2\Data\Zookeeper\version-2
+No caminho acima são armazenados os arquivos do Zookeeper.
+
+----------------------------------------------------------------------------------------------
+
+** COMANDO PARA CRIAR UM TOPICO CHAMADO AnimalTopic, É NECESSÁRIO QUE ESTEJAMOS NA PASTA >> C:\kafka\kafka_2.13-3.3.2\bin\windows>
+kafka-topics.bat --create --topic AnimalTopic --bootstrap-server localhost:9092
+
+** COMANDO PARA ENVIAR MENSAGEM AO TOPICO ACIMA, É NECESSÁRIO QUE ESTAJAMOS NA PASTA >> C:\kafka\kafka_2.13-3.3.2\bin\windows> PARA EXECUTAR O CMD
+kafka-console-producer.bat --topic AnimalTopic --bootstrap-server localhost:9092
+
+** COMANDO PARA CONSUMIR AS MENSAGEM ENVIADAS ACIMA
+kafka-console-consumer.bat --topic AnimalTopic --from-beginning --bootstrap-server localhost:9092
+
+
+
+
+*******************************  CRIANDO OUTRO TOPICO ************************************
+CRIANDO TOPICO OrderTopic
+kafka-topics.bat --create --topic OrderTopic --bootstrap-server localhost:9092
+
+CRIANDO TOPICO UserTopic
+kafka-topics.bat --create --topic UserTopic --bootstrap-server localhost:9092
+
+LISTANDO OS TOPICOS QUE JÁ FORAM CRIADOS
+kafka-topics.bat --list --bootstrap-server localhost:9092
+
