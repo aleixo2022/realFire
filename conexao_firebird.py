@@ -21,7 +21,7 @@ def consultar(con, tabela):
     cur = con.cursor()
     
     # consulta
-    query = "SELECT  cod_operacao FROM  " + tabela +" where data > '01.01.2023'"
+    query = "SELECT  max(cod_operacao) FROM  " + tabela +" where data > '01.01.2023'"
     cur.execute(query)
     
     # obtenção dos resultados
