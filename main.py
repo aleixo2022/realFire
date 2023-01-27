@@ -10,10 +10,10 @@ import json
 
 
 msg_dict = {
-    "operatorId":"Alex",#公交公司ID
-    "terminalId":"test",#设备Id
-    "terminalCode":"0206",#设备编码（使用车辆ID）
-    "terminalNo":"1234",#同一车辆内terminal序号从1开始
+    "operatorId":"tete01", 
+    "terminalId":"test", 
+    "terminalCode":"0206", 
+    "terminalNo":"1234", 
 }
 
 mensagem = json.dumps(msg_dict).encode()
