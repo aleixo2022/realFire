@@ -13,7 +13,7 @@ while True:
     mensagem =  json.dumps(resultados[0])
 
     # mensagem = {
-    #     "operatorId":"tete01", 
+    #     "operatorId":"tete01",  
     #     "terminalId":"test", 
     #     "terminalCode":"0206", 
     #     "terminalNo":"1234", 
