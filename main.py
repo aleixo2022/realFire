@@ -10,8 +10,7 @@ while True:
 
     #chamando a função de consulta
     resultados = conexao_firebird.consultar(con, "produtos_eventos")
-    mensagem =  json.dumps(resultados[0])
-
+  
     # mensagem = {
     #     "operatorId":"tete01",  
     #     "terminalId":"test", 
@@ -19,8 +18,9 @@ while True:
     #     "terminalNo":"1234", 
     # }
 
-    mensagem = json.dumps(mensagem).encode()
-
+    print(resultados)
+    # mensagem = json.dumps(mensagem).encode()
+    # print(mensagem)
     # chamando a função de envio de mensagem
-    kafka_producer.enviar_mensagem(mensagem, 'ProdutoEvento')
+    # kafka_producer.enviar_mensagem(mensagem, 'ProdutoEvento')
     time.sleep(5)

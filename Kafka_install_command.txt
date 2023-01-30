@@ -31,6 +31,8 @@ kafka-console-producer.bat --topic AnimalTopic --bootstrap-server localhost:9092
 ** COMANDO PARA CONSUMIR AS MENSAGEM ENVIADAS ACIMA
 kafka-console-consumer.bat --topic AnimalTopic --from-beginning --bootstrap-server localhost:9092
 
+** COMANDO PARA CONSUMIR AS MENSAGEM ENVIADAS ACIMA
+kafka-console-consumer.bat --topic ProdutoEvento --from-beginning --bootstrap-server localhost:9092
 
 
 
@@ -44,3 +46,23 @@ kafka-topics.bat --create --topic UserTopic --bootstrap-server localhost:9092
 LISTANDO OS TOPICOS QUE JÁ FORAM CRIADOS
 kafka-topics.bat --list --bootstrap-server localhost:9092
 
+
+
+*********************** ANALISANDO UM TOPICO ESPECIFICO *****************************
+kafka-topics.bat --describe --bootstrap-server localhost:9092 --topic ProdutoEvento
+
+
+*********************** ANALISANDO COMO CADA GRUPO ESTA PROCESSANDOS AS MENSAGENS 
+kafka-consumer-groups --group nome-do-grupo --bootstrap-server localhost:9092
+
+
+
+
+C:\Program Files\Java\jre1.8.0_351\lib\firebird-jdbc\jaybird-5.0.0.java11.jar
+
+
+
+
+*****************************  KAFKA CONNECT *********************
+comando para conectar a base de dados usando o kafka connect
+connect-standalone.bat config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties

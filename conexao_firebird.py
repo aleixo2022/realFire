@@ -1,9 +1,9 @@
 import fdb
-
+import pandas as pd
 def conectar():
     # informações de conexão
-    host = "10.20.4.179"
-    banco = "D:/Sys/Base/MILLENNIUM"
+    host = "10.255.255.115" #10.20.4.179"
+    banco = "c:/BD/DESENVOLVIMENTO.FDB"#D:/Sys/Base/MILLENNIUM"
     usuario = "sysdba"
     senha = "masterkey"
     
@@ -21,13 +21,9 @@ def consultar(con, tabela):
     cur = con.cursor()
     
     # consulta
-    query = "SELECT  max(cod_operacao) FROM  " + tabela +" where data > '01.01.2023'"
-    cur.execute(query)
-    
-    # obtenção dos resultados
-    resultados = cur.fetchall()
+    query =pd.read_sql("SELECT  * FROM  " + tabela +" where data > '01.01.2022'", con)
     
     # fechamento do cursor
     cur.close()
     
-    return resultados
+    return query
