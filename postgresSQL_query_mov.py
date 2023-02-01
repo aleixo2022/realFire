@@ -1,4 +1,4 @@
-import connectModules.connect_postgres as connect_postgres
+import connect_postgres as connect_postgres
 con = connect_postgres.connect()
 
 def consulta():
