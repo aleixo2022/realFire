@@ -1,5 +1,5 @@
 #importação dos arquivos
-import models.conexao_firebird as conexao_firebird
+import  conexao_firebird as conexao_firebird
 import movestoque
 #import kafka_producer
 import time

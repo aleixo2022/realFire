@@ -10,6 +10,7 @@ dfmov1 = pd.DataFrame(fqmData, columns=['mov_estoque', 'produto',  'filial', 'em
 dfmov2 = pd.DataFrame(pqmData, columns=['mov_estoque', 'produto',  'filial', 'empenho', 'quantidade','idlocal','tipo_origem','data'])
 
 not_in_dfmov2 = dfmov1[~dfmov1['mov_estoque'].isin(dfmov2['mov_estoque'])]
+
 not_in_dfmov2.to_csv("base_inexistente.csv", index=False)
 dfmov1.to_csv("dfmov1.csv", index=False)
 dfmov2.to_csv("dfmov2.csv", index=False)

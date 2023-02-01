@@ -7,6 +7,5 @@ def enviar_mensagem(mensagem, topico):
     
     # envio da mensagem
     producer.send(topico, mensagem)
-    
-    # fechamento do producer
+  
     
