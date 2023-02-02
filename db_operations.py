@@ -1,4 +1,5 @@
 import psycopg2
+from psycopg2 import extras
 import time
 def save_data(mov_estoque, produto, filial, empenho, quantidade, idlocal, tipo_origem, data):
     try:
@@ -14,7 +15,7 @@ def save_data(mov_estoque, produto, filial, empenho, quantidade, idlocal, tipo_o
         postgreSQL_insert_query = """INSERT INTO mov_estoque (mov_estoque, produto, filial, empenho, quantidade, idlocal, tipo_origem, data) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
         
         record_to_insert = (mov_estoque, produto, filial, empenho, quantidade, idlocal, tipo_origem, data)
-        print(record_to_insert)
+         
         cursor.execute(postgreSQL_insert_query, record_to_insert)
         
         connection.commit()
