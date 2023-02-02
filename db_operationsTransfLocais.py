@@ -1,5 +1,4 @@
 import psycopg2
-from psycopg2 import extras
 
 
 def save_transf(TRANSFERENCIA_LOCAL,COD_TRANSFERENCIA ,DATA ,FILIAL ,TIPO ,STATUS ,USUARIO_INCLUSAO ,DATA_INCLUSAO ,
@@ -44,7 +43,7 @@ def save_transf(TRANSFERENCIA_LOCAL,COD_TRANSFERENCIA ,DATA ,FILIAL ,TIPO ,STATU
         connection.commit()
         print("Dados inseridos com sucesso!")
     except(Exception, psycopg2.Error) as error:
-        print("Error ao inserir dados da tabela produtos do millennium no Postgres[Produtos]", error)
+        print("Error ao inserir dados da tabela transferencias_locais do millennium no Postgres[transferencias_locais]", error)
     finally:
         if(connection):
             cursor.close()
@@ -67,7 +66,7 @@ def check_transf_exists(TRANSFERENCIA_LOCAL):
     DATA_EXCLUSAO ,REGRA_WMS ,TRANSFERENCIA_ORIGEM ,STATUS_ORIGINAL ,CRIA_LOTE_CONF_DESTINO ,USUARIO_CONFERENCIA_DESTINO ,SUSPENSO ,
     USUARIO_FINALIZA_SUSPENSO ,DATA_FINALIZA_SUSPENSO ,STATUS_VOLUME ,CONTROLA_VOLUME_ESTOQUE_WMS ,USUARIO_FINALIZACAO ,DATA_FINALIZACAO ,
     DIAS_MINIMOS_VALIDADE_ESTOQUE ,STATUS_WORKFLOW ,STATUS_WORKFLOW_DATE ,TRANSFERENCIA_VOLUME_FECHADO ,REARMAZENAGEM ,ENCADEAMENTO_FINALIZADO ,
-    PERSONALIZADO ,BLOQUEADA_PARA_CONFERENCIA ,CONFERENCIA_INDIVIDUAL ,PREPICKING ,IDLOCAL_RAMPA from produtos where produto = %s"""
+    PERSONALIZADO ,BLOQUEADA_PARA_CONFERENCIA ,CONFERENCIA_INDIVIDUAL ,PREPICKING ,IDLOCAL_RAMPA from transferencias_locais where transferencia_local = %s"""
         
         cursor.execute(postgresSQL_select_query, (TRANSFERENCIA_LOCAL,))
         records = cursor.fetchall()
@@ -77,7 +76,7 @@ def check_transf_exists(TRANSFERENCIA_LOCAL):
         else:
             return False
     except(Exception, psycopg2.Error) as error:
-        print("Não foi possível consultar o id Produto do banco de dados MIllennium", error)
+        print("Não foi possível consultar o id transferencia_local do banco de dados MIllennium", error)
     finally:
         if(connection):
             cursor.close()

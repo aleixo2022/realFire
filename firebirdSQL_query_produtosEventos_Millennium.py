@@ -1,5 +1,4 @@
 import conexao_firebird as conexao_firebird
-import pandas as pd 
 con = conexao_firebird.conectar()
 
 def consulta():
